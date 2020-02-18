@@ -13,12 +13,7 @@
     
     
     <style>
-    
 
-        .navbar-brand{
-                width: 100%;
-                text-align: center;
-            }
 
         @keyframes color-change {
         0% {
@@ -44,9 +39,8 @@
         animation: 10000ms ease-in-out infinite color-change;
         }
         section{
-            text-align: center;
             position: relative;
-            top: 160px;
+            top: 200px;
         }
         .btn {
                 border:transparent;
@@ -67,14 +61,20 @@
 <body>
 
     <header>
-        <div class="navbar-brand">
-            <img src="images/Title 1.png">
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-transparent border-none shadow-sm">
+            <a href="#" class="navbar-brand">
+                <img src="images/Title 1.png" class="main-img" alt="heyyo world">
+            </a>
         </div>
     </header>
 
     <section>
-        <a href="signup.html" class = "btn signup" role="button">Get Started</a>
-        <a href ="signup.html" class = "btn login" role="button" >Login</a>
+        <div class="d-flex flex-md-row justify-content-center align-items-center">
+            <a href="signup.html" class = "btn signup" role="button" style="margin-right: 10px;">Get Started</a>
+            <a href ="login.html" class = "btn login" role="button" >Login</a>
+
+        </div>
+        
     </section>
     
 </body>

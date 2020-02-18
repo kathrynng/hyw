@@ -6,3 +6,7 @@ html body{
 .navbar-brand img{
     width: 15em;
 }
+
+.container-fluid{
+    width: 75%;
+}

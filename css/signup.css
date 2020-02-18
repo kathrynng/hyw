@@ -1,0 +1,108 @@
+#signup2{
+    margin: 2em auto;
+    width: 80%;
+}
+
+.selectProfession, .selectLayout{
+    margin:5em 0;
+    text-align: center;
+}
+
+.selectProRow{
+    display: block;
+}
+
+
+.roundContainer {
+
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+.roundContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+.roundCheck {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    border-radius: 100%;
+    height: 200px;
+    width: 200px;
+    transition: all 0.5s ease-in-out;
+    background-color: rgba(172, 172, 172, 0.5);
+  }
+
+    .space{
+        width: 140px;
+        cursor: auto;
+    }
+
+  .roundContainer input:checked ~ #developerCheck {
+        transform: scale(1.8);
+        background-color: rgba(71, 144, 252, 0.5);
+  }
+
+  .roundContainer input:checked ~ #designerCheck {
+    transform: scale(1.8);
+    background-color: rgba(243, 42, 42, 0.5);
+}
+.roundContainer input:checked ~ #researcherCheck {
+    transform: scale(1.8);
+    background-color: rgba(42, 243, 92, 0.5);
+}
+
+.layoutBox{
+    margin:1em;
+    width:50%;
+    display: block;
+}
+
+.layoutBox input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .selectLayout{
+    display: inline-flex;
+      margin: 0 auto;
+  }
+
+  .layoutChoice {
+    border-radius: 15px;
+
+      display: block;
+      border:solid #000 5px;
+      width: 100%;
+      height: auto;
+      opacity: 0.5;
+      padding: 1em;
+  }
+
+  .layoutChoice img{
+
+      width: 100%;
+  }
+
+  .layoutBox input:checked ~ .layoutChoice{
+      opacity: 1;
+  }

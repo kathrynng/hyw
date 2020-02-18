@@ -34,12 +34,10 @@
              width: 400px;
              display: inline-block;
         }
-        label{
-            text-align: left;
-        }
+
         h3{
             font-size: 30px;
-            margin: 10px;
+            margin-bottom: 30px;
         }
    
         .fa:hover {
@@ -91,6 +89,22 @@
             font-size: 25px;
             background-image: url("images/artpiece.jpg");
         }
+        form{
+            /* border: solid black 2px; */
+            width: 100%;
+
+        }
+        label{
+            width: 100px;
+            /* border: solid 1px; */
+            text-align: left;
+            display: inline-block;
+        }
+
+        label.pass{
+
+            margin-left: 30px;
+        }
         
     </style>
 
@@ -113,7 +127,7 @@
                 <label>First Name: </label> <input type="text" id="fname" name="fname"> <br>
                 <label>Last Name:  </label> <input type="text" id="lname" name= "lname"> <br>
                 <label>E-mail: </label> <input type="text" id = "email" name= "email"> <br>
-                <label>Password: </label> <input type="password" id = "password-field" name= "password">
+                <label class = "pass">Password:</label> <input type="password" id = "password-field" name= "password">
                 <i id  = "password-status" class="fa fa-eye" aria-hidden="true" onclick="showPassword()"></i> <br><br>
                 <p style="color: gray;">or continue with</p>
                 <a href="#" class="fa fa-facebook"></a>

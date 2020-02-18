@@ -13,17 +13,69 @@
     
     
     <style>
+    
 
+        .navbar-brand{
+                width: 100%;
+                text-align: center;
+            }
 
+        @keyframes color-change {
+        0% {
+            background-color: teal;
+        }
+        20% {
+            background-color: gold;
+        }
+        40% {
+            background-color: indianred;
+        }
+        60% {
+            background-color: rgb(243, 180, 243);
+        }
+        80% {
+            background-color: green;
+        }
+        100% {
+            background-color: teal;
+        }
+        }
+        body {
+        animation: 10000ms ease-in-out infinite color-change;
+        }
+        section{
+            text-align: center;
+            position: relative;
+            top: 160px;
+        }
+        .btn {
+                border:transparent;
+                background-image: linear-gradient(to right,#EDEEC9,#DDE7C7);
+                color: rgb(171, 173, 124);
+                padding: 30px 20px;
+                font-size: 1.5em;
+                cursor: pointer;
+                display: inline-block;
+                width: 150px;
+                height: 150px;
+            }
 
     </style>
 
 </head>
+
 <body>
 
     <header>
-
+        <div class="navbar-brand">
+            <img src="images/Title 1.png">
+        </div>
     </header>
+
+    <section>
+        <a href="signup.html" class = "btn signup" role="button">Get Started</a>
+        <a href ="signup.html" class = "btn login" role="button" >Login</a>
+    </section>
     
 </body>
 </html>

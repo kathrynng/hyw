@@ -3,7 +3,7 @@
     width: 80%;
 }
 
-.selectProfession, .selectLayout{
+#selectProfession, #selectLayout{
     margin:5em 0;
     text-align: center;
 }
@@ -82,12 +82,13 @@
     width: 0;
   }
 
-  .selectLayout{
+  #selectLayout{
     display: inline-flex;
       margin: 0 auto;
   }
 
   .layoutChoice {
+
     border-radius: 15px;
 
       display: block;
@@ -104,5 +105,15 @@
   }
 
   .layoutBox input:checked ~ .layoutChoice{
+      transition: ease 0.5s;
       opacity: 1;
+  }
+
+  #choice {
+    margin: 5em auto;
+    width:max-content;
+  }
+
+  #preview-btn{
+    margin:0 2em;
   }

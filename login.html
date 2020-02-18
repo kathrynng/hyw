@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>sign-up-form</title>
+    <title>login-form</title>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -85,9 +85,10 @@
             height: 50px;
             border: none;
             border-radius: 25%;
-            color: white;
+            color: #F4ECD6;
             font-size: 25px;
             background-image: url("images/artpiece.jpg");
+            /* background-image:linear-gradient(to left,#63B0CD,#F4ECD6); */
         }
         form{
             /* border: solid black 2px; */
@@ -123,14 +124,12 @@
         </div>
     </header>
     <section>
-        <h3>Create Account</h3>
+        <h3>Login</h3>
         <form>
             <fieldset>
-                <label>First Name: </label> <input type="text" id="fname" name="fname"> <br>
-                <label>Last Name:  </label> <input type="text" id="lname" name= "lname"> <br>
                 <label>E-mail: </label> <input type="text" id = "email" name= "email"> <br>
                 <label class = "pass">Password:</label> <input type="password" id = "password-field" name= "password">
-                <i id  = "password-status" class="fa fa-eye" aria-hidden="true" onclick="showPassword()"></i> 
+                <i id  = "password-status" class="fa fa-eye" aria-hidden="true" onclick="showPassword()"></i>
                 <br><br>
                 <input class ="submit" type="submit" value="Continue">
                 <br><br>
@@ -138,10 +137,9 @@
                 <a href="#" class="fa fa-facebook"></a>
                 <a href="#" class="fa fa-twitter"></a>
                 <a href="#" class="fa fa-google"></a>
-                <a href="#" class="fa fa-linkedin"></a>
+                <a href="#" class="fa fa-linkedin"></a><br><br>
 
                 
-
                 <script>
                 function showPassword()
                 {

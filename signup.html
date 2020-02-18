@@ -1,13 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>HYW</title>
+        <title>sign-up-starter</title>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <link rel='stylesheet' href="css/main.css">
+        <style>
+            .topnav{
+                background-image: linear-gradient(to right,#EDEEC9,#DDE7C7);
+                height: 100px;
+            }
+            section{
+                text-align: center;
+                position: relative;
+                top: 160px;
+            }
+            .btn {
+                border:transparent;
+                background-image: linear-gradient(to right,#EDEEC9,#DDE7C7);
+                color: rgb(171, 173, 124);
+                padding: 30px 20px;
+                font-size: 1.5em;
+                cursor: pointer;
+                display: inline-block;
+                width: 150px;
+                height: 150px;
+            }
+            h3{
+                
+                color: rgb(171, 173, 124);
+                margin-bottom: 20px;
+            }
+
+            @keyframes color-change {
+                0% {
+                    background-color: teal;
+                }
+                20% {
+                    background-color: gold;
+                }
+                40% {
+                    background-color: indianred;
+                }
+                60% {
+                    background-color: rgb(243, 180, 243);
+                }
+                80% {
+                    background-color: green;
+                }
+                100% {
+                    background-color: teal;
+                }
+            }
+
+            body {
+            animation: 10000ms ease-in-out infinite color-change;
+            }
+
+
+        </style>
     </head>
     <body>
-        
+        <header>
+            <div class="topnav">
+                <img src="images/Title 1.png">
+            </div>
+        </header>
+
+        <section>
+            <h3>
+                Who are you?
+            </h3>
+            <a href="sign-up-form.html" class = "btn client" role="button">Potential Client</a>
+            <a href ="sign-up-form.html" class = "btn user" role="button" >User</a>
+        </section>
+
+        <footer>
+
+        </footer>
     </body>
 </html>

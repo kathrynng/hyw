@@ -1,0 +1,156 @@
+.navbar-brand {
+  width: 100%;
+}
+
+body {
+    background: linear-gradient(238deg, #43c1a0, #6b71c6);
+    background-size: 400% 400%;
+    
+    -webkit-animation: bgGrad 18s ease infinite;
+    -moz-animation: bgGrad 18s ease infinite;
+    -o-animation: bgGrad 18s ease infinite;
+    animation: bgGrad 18s ease infinite;
+    
+}
+
+@-webkit-keyframes bgGrad {
+    0%{background-position:0% 44%;}
+    50%{background-position:100% 57%;}
+    100%{background-position:0% 44%;}
+}
+
+@-moz-keyframes bgGrad {
+    0%{background-position:0% 44%;}
+    50%{background-position:100% 57%;}
+    100%{background-position:0% 44%;}
+}
+@-o-keyframes bgGrad {
+    0%{background-position:0% 44%;}
+    50%{background-position:100% 57%;}
+    100%{background-position:0% 44%;}
+}
+@keyframes bgGrad {
+    0%{background-position:0% 44%;}
+    50%{background-position:100% 57%;}
+    100%{background-position:0% 44%;}
+}
+
+.fa {
+  color: black;
+  font-size: 20px;
+  margin-left: 8px;
+}
+
+header{
+    background-color: white;
+}
+
+section {
+  text-align: center;
+  margin-top: 150px;
+}
+fieldset {
+  /* border: solid 1px; */
+  width: 400px;
+  display: inline-block;
+}
+
+h3 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.fa:hover {
+  opacity: 0.7;
+  text-decoration: none;
+  color: white;
+  transition: 0.2s ease;
+}
+
+.fa-facebook {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  background: #3b5998;
+  color: white;
+}
+.fa-twitter {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  background: #55acee;
+  color: white;
+}
+.fa-google {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  background: #dd4b39;
+  color: white;
+}
+.fa-linkedin {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  background: #007bb5;
+  color: white;
+}
+.submit {
+  width: 200px;
+  height: 50px;
+  border: 2px solid rgb(156, 67, 156);
+  border-radius: 25em;
+  color: #ffffff;
+  font-size: 25px;
+background: none;
+
+transition: 0.2s ease;
+
+}
+
+.submit:hover{
+    outline: none;
+    border-color: rgb(252, 220, 252);
+    box-shadow: 0 0 10px rgb(252, 220, 252);
+    background-color: rgb(252, 220, 252);
+
+    transition: 0.2s ease;
+}
+
+fieldset p {
+    color: rgb(238, 238, 238);
+}
+
+input{
+    padding: 0 3px;
+    border: 2px solid #3b5998;
+    border-radius: 10px;
+}
+
+input:focus{
+    border-color: #55acee;
+    box-shadow: 0 0 5px #55acee;
+}
+
+form {
+  /* border: solid black 2px; */
+  width: 100%;
+}
+label {
+  width: 100px;
+  /* border: solid 1px; */
+  text-align: left;
+  display: inline-block;
+}
+
+label.pass {
+  margin-left: 30px;
+}

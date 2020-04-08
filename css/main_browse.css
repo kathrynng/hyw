@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url(./variables/variables.css);
+@import url(./variables/global.css);
+
+html body{
+    font-family: Roboto, sans-serif; 
+}
+
+
+.navbar-brand img{
+    width: 15em;
+}
+
+.container-fluid{
+    width: 75%;
+}
+.navbar{
+    padding: 1rem,20rem;
+}
+.nav-item {
+    padding: 1.2rem;
+    text-transform: uppercase;
+}
+
+/*Navigation area*/
+.header-area .main-menu .navbar-nav .active a{
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header-area .main-menu .navbar-nav a:hover{
+    background: linear-gradient(90deg,#4458dc 0%,#854fee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/*Banner Area*/
+.site-main h3{
+    padding-top: 35%;
+    font-weight: 500;
+}
+.site-main h3::after{
+    content: "";
+    height: 2px;
+    width: 18vw;
+    background: black;
+    display: inline-block;
+    margin-left: 5%;
+}
+.site-main h1{
+    font-size: 3em;
+}
+
+.site-main h4{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.site-main .banner-img > img{
+    padding: 5em 0;
+    width: 90rem;
+}
+/*About Area*/
+.site-main .about-area{
+    padding: 8rem 5rem;
+}
+
+.site-main .about-area .about-title h2>span{
+    display: block;
+    font: normal bold 49px/60px var(--roboto);
+    letter-spacing: 21px;
+}
+.site-main .about-area .about-title .paragraph > p{
+    padding: .4rem 0;
+}
+
+
+/*Project Area*/
+
+.site-main .project-area{
+    padding: 4rem;
+}
+.site-main .project-area .project-menu button{
+    background: transparent;
+    border: none;
+    font: normal 500 16px/130px var(--roboto);
+    text-transform: uppercase;
+}
+
+.site-main .project-area .project-menu button+button{
+    padding: 0 8rem;
+}

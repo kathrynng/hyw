@@ -2,12 +2,7 @@
     $servername = 'localhost';
     $username = 'root';
     $password = '';
-
+    $database = 'usersDB';
     
-    $conn = new mysqli($servername, $username, $password);
-
-    if ($conn->connect_error)
-        die("Connection failed: " -> $conn->connect_error);
-
-    
+    $connInfo = array('DATABASE'=>$database, 'UID'=>$username, 'PWD'=>$password, 'CharacterSet' => 'UTF-8');
 ?>

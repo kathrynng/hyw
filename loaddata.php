@@ -15,6 +15,10 @@
     }
     mysqli_close($conn);
 
+    session_reset();
+    
+    include 'logout.php';
+
     header('Location: main.php');
 
 ?>

@@ -9,7 +9,10 @@ session_start();
         $authenticatedUser = validateLogin($_POST['email'], $_POST['password']);
         if($authenticatedUser != null){
             $_SESSION['authenticatedUser'] = $authenticatedUser;
-            header('Location: main.php');
+            if ($_SESSION['adminLogin']!=null)
+                header('Location: admin.php');
+            else
+                header('Location: usersite.php');
         }
             else
             header('Location: login.php');
@@ -37,8 +40,8 @@ session_start();
         $sql->execute();
         $result = mysqli_stmt_get_result($sql);
 
-        if ($result == false){
-            die(print_r (mysqli_error($conn),true));
+        if ($result <= 0) {
+            die(print_r(mysqli_error($conn), true));
         }
 
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -61,6 +64,39 @@ session_start();
         return $retStr;
         
       
+    }
+
+    function adminLogin($email){
+        
+        $_SESSION['adminLogin'] = null;
+
+        include 'connection.php';
+        $conn = new mysqli($servername, $username, $password, $database);
+
+        $sql = mysqli_prepare($conn, "SELECT siteType FROM usersite WHERE email = ?");
+
+        $sql -> bind_param('s',$email);
+
+        $sql->execute();
+        $result = mysqli_stmt_get_result($sql);
+
+        if ($result <= 0) {
+            die(print_r(mysqli_error($conn), true));
+        }
+
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+        if($row['siteType']==999){
+            $_SESSION['adminLogin'] = 'admin';
+           
+        }else{
+            $_SESSION['adminLogin'] = null  ;      }
+
+        mysqli_free_result($result);
+        mysqli_close($conn);
+
+
+
     }
 
 

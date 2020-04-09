@@ -4,11 +4,16 @@ html body{
     font-family: Roboto, sans-serif; 
 }
 
-.sign-login{
+.sign-login {
     font-size: 150%;
 }
 
-.nav a{
+.nav li {
+    list-style: none;
+}
+
+.nav a, .nav input{
+    cursor: pointer;
     color: red;
     transition:0.3s ease;
 }
@@ -30,4 +35,9 @@ html body{
 
 .container-fluid{
     width: 75%;
+}
+
+th, td{
+    border:2px solid #888;
+    padding:15px;
 }

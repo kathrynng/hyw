@@ -2,54 +2,71 @@
 <html lang="en">
 <head>
     <title>HYW</title>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/main_browse.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main_browse.css">
 </head>
 <body>
     <?php
     session_start();
     ?>
-    <div class="nav justify-content-between d-flex flex-column flex-md-row align-items-center mb-3 bg-white border-bottom shadow-sm pd-2">
+    <div class="collapse navbar-collapse nav justify-content-between d-flex flex-column flex-md-row align-items-center mb-3 bg-white border-bottom shadow-sm pd-2">
         <a href="#" class="navbar-brand">
             <img src="images/Title 1.png" class="main-img" alt="heyyo world">
         </a>
-        <a class="sign-login" href="<?php 
-            if(isset($_SESSION['authenticatedUser'])){
-                if ($_SESSION['authenticatedUser'] != null){
-                    $user = $_SESSION['authenticatedUser'];
-                    echo 'userGridWork.html';    
+        <ul>
+        <li class = "nav-item
+            <?php
+                if(isset($_SESSION['authenticatedUser'])){
+                    if ($_SESSION['authenticatedUser'] != null){
+                        $user = $_SESSION['authenticatedUser'];
+                        echo ' dropdown';    
+                    }
                 }
-            }else{
-                echo 'login.php';
-            }
-        ?>">
+            ?>"
+        >
         <?php
             if(isset($_SESSION['authenticatedUser'])){
                 if ($_SESSION['authenticatedUser'] != null){
                     $user = $_SESSION['authenticatedUser'];
                     echo '
-
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class=" sign-login nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       My HYW
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">My Clients</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Log Out</a>
-                     
-                    </div>
-                    ';
+                    <a class="dropdown-item" href="#">My Profile</a> ';
+                    if (isset($_SESSION['adminLogin'])){
+                        if($_SESSION['adminLogin']!=null){
+                            echo ' 
+                            <a class="dropdown-item" href="admin.php">Admin Corner</a>';    
+                        }else{
+                            echo ' 
+                        <a class="dropdown-item" href="#">My Clients</a>';    
+                    
+                        }
+                    }
+                    else {
+                        echo ' 
+                        <a class="dropdown-item" href="#">My Clients</a>';    
+                    }
+                    echo '<div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="logout.php">Log Out</a>
+                   
+                  </div>
+                  ';
+
                 }
-            }else{
-                echo 'Login';
-            }
+            }else
+                   echo '<a class="sign-login" href="login.php">Login</a>';
+                
         ?>
-        </a>
+        
+        </li>
+        </ul>
+
     </div>
 
 
@@ -256,6 +273,8 @@
     <script src="./js/bootstrap.min.js"></script>
     <!--Isotope JS library-->
     <script src="./vender/isotope/isotope.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
     <!---Main.js-->
     <script src="./js/main.js"></script>
 

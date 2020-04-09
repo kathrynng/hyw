@@ -14,7 +14,11 @@
 
 
 </head>
+
 <body>
+    <?php
+        session_start();
+    ?>
     <header>
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-transparent border-none shadow-sm">
             <a href="main.php" class="navbar-brand">
@@ -24,14 +28,13 @@
     </header>
     <section>
         <h3>Create Account</h3>
-        <?php
-        if(session_status()==2){}else{session_start();}
-        if(isset($_SESSION['registerMessage'])){
-            if($_SESSION['registerMessage']!=null){
-                echo ('<h4>' . $_SESSION['registerMessage'] . '</h4>');
-            }
+    <?php
+    if (isset($_SESSION["registerMessage"])) {
+        if ($_SESSION["registerMessage"] != null) {
+            echo ('<h4>' . $_SESSION["registerMessage"] . '</h4>');
         }
-        ?>
+    }
+    ?>
         <form method="POST" action="signup.php">
             <fieldset>
                 <label>First Name: </label> <input type="text" id="fname" name="fname"> <br>
@@ -62,59 +65,84 @@
 
             </fieldset>
         </form>
-        <form method="POST" action="validateLogin.php">
-            <input class="submit" name='login' type="submit" value="Login">
-        </form>
 
         <?php
         include 'connection.php';
 
-        if (isset($_POST['submit']) ){
+        if (isset($_POST['signup'])) {
             $fname = $_POST['fname'];
             $lname = $_POST['lname'];
             $email = $_POST['email'];
             $pw = $_POST['password'];
 
-            if($fname == null || $lname == null || $email == null || $pw == null
-                || strlen($fname) == 0 || strlen($lname) == 0 || strlen($email) == 0 || strlen($pw) == 0 )
-            {
+            if (
+                $fname == null || $lname == null || $email == null || $pw == null
+                || strlen($fname) == 0 || strlen($lname) == 0 || strlen($email) == 0 || strlen($pw) == 0
+            ) {
                 $_SESSION["registerMessage"] = "Missing Information";
+            } else {
+                $conn = new mysqli($servername, $username, $password, $database);
+
+                if (!$conn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
+
+                $sql = mysqli_prepare($conn, "SELECT firstname FROM users WHERE email = ?");
+
+                $sql -> bind_param('s',$email);
                 
-                // header('Location: signup.php');
-            }
-            else{
-                $conn = mysqli_connect($servername, $connInfo);
+                $result = $sql->execute();
 
-                $sql = "SELECT firstname FROM users WHERE email = ?";
-                $params = array($email);
-                $stmt = mysqli_query($conn, $sql, $params);
+                // if ($result == false) {
+                //     die(print_r(mysqli_error($conn), true));
+                // }
+                $sql -> close();
 
-                if ($stmt === false){
-                    die(print_r (mysqli_error($conn),true));
-                }
-                if(($emailChk = mysqli_fetch_array(mysqli_fetch_assoc($stmt))) != null){
-                    $_SESSION['registerMessage'] = "Email is registered";
-                    // header('Location: signup.php');   
-                }
-                else{
-                    $sql = "INSERT INTO users (firstname, lastname, email, password) VALUES (?,?,?,?)";
-                    $params = array($fname,$lname,$email,$pw);
-                    $stmt = mysqli_query($conn, $sql, $params);
+                if ($result == false || $result == 1) {
 
-                    if ($stmt === false){
-                        die(print_r (mysqli_error($conn),true));
+                    $sql = mysqli_prepare($conn, "INSERT INTO users VALUES (?,?,?,?)");
+
+                    $sql -> bind_param('ssss',$fname, $lname, $email, $pw);
+        
+                    $result1 = $sql -> execute();
+
+                    if ($result1 === false) {
+                        echo "false";
+                        die(print_r(mysqli_error($conn), true));
+                    }
+                    else if ($result1 == true){
+                        echo "true";
+                        $_SESSION["registerMessage"] = null;
+                        $_SESSION["authenticatedUser"] = $email;
+                        header('Location: sign-up-form.php');
                     }
 
-                }
+                    echo "incomplete";
 
-                $_SESSION['registerMessage'] = null;
+                    $sql->close();
+                    mysqli_free_result($result1);
+                    mysqli_close($conn);
+
+                } else {
+                    echo($result);
+                    $emailChk = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                    if ($emailChk['email'] == $email){
+                        $_SESSION["registerMessage"] = "Email is registered";
+                        header('Location: signup.php');   
+                    }
+                }
+                mysqli_free_result($result);
+
 
             }
-        }else{
-
         }
-
         ?>
+
+        <form method="POST" action="validateLogin.php">
+            <input class="submit" name='login' type="submit" value="Login">
+        </form>
+
+       
 
     </section>
 

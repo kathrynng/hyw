@@ -32,7 +32,18 @@
             if(isset($_SESSION['authenticatedUser'])){
                 if ($_SESSION['authenticatedUser'] != null){
                     $user = $_SESSION['authenticatedUser'];
-                    echo 'My HYW';    
+                    echo '
+
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      My HYW
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">My Clients</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Log Out</a>
+                     
+                    </div>
+                    ';
                 }
             }else{
                 echo 'Login';

@@ -14,21 +14,25 @@
 
 
 </head>
-
-
-
-
 <body>
     <header>
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-transparent border-none shadow-sm">
-            <a href="#" class="navbar-brand">
+            <a href="main.php" class="navbar-brand">
                 <img src="images/Title 1.png" class="main-img" alt="heyyo world">
             </a>
         </div>
     </header>
     <section>
         <h3>Create Account</h3>
-        <form method="POST" action="validateLogin.php">
+        <?php
+        if(session_status()==2){}else{session_start();}
+        if(isset($_SESSION['registerMessage'])){
+            if($_SESSION['registerMessage']!=null){
+                echo ('<h4>' . $_SESSION['registerMessage'] . '</h4>');
+            }
+        }
+        ?>
+        <form method="POST" action="signup.php">
             <fieldset>
                 <label>First Name: </label> <input type="text" id="fname" name="fname"> <br>
                 <label>Last Name: </label> <input type="text" id="lname" name="lname"> <br>
@@ -36,9 +40,8 @@
                 <label class="pass">Password:</label> <input type="password" id="password-field" name="password">
                 <i id="password-status" class="fa fa-eye" aria-hidden="true" onclick="showPassword()"></i>
                 <br><br>
-                <input class="submit" name="submit" type="submit" value="Continue">
+                <input class="submit" name="signup" type="submit" value="Continue">
                 <br><br>
-                <input class="submit" name='login' type="submit" value="Login">
 
 
                 <script>
@@ -59,53 +62,56 @@
 
             </fieldset>
         </form>
+        <form method="POST" action="validateLogin.php">
+            <input class="submit" name='login' type="submit" value="Login">
+        </form>
+
         <?php
         include 'connection.php';
 
-        if (isset($_POST['submit'])){
+        if (isset($_POST['submit']) ){
             $fname = $_POST['fname'];
             $lname = $_POST['lname'];
             $email = $_POST['email'];
             $pw = $_POST['password'];
 
-            if($fname == null || $lname == null || $email == null || $pw == null){
+            if($fname == null || $lname == null || $email == null || $pw == null
+                || strlen($fname) == 0 || strlen($lname) == 0 || strlen($email) == 0 || strlen($pw) == 0 )
+            {
                 $_SESSION["registerMessage"] = "Missing Information";
-                header('Location: signup.php');
+                
+                // header('Location: signup.php');
             }
             else{
-                $conn = sqlsrv_connect($servername, $connInfo);
+                $conn = mysqli_connect($servername, $connInfo);
 
                 $sql = "SELECT firstname FROM users WHERE email = ?";
                 $params = array($email);
-                $stmt = sqlsrv_query($conn, $sql, $params);
+                $stmt = mysqli_query($conn, $sql, $params);
 
                 if ($stmt === false){
-                    die(print_r (sqlsrv_errors(),true));
+                    die(print_r (mysqli_error($conn),true));
                 }
-                if(($emailChk = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) != null){
+                if(($emailChk = mysqli_fetch_array(mysqli_fetch_assoc($stmt))) != null){
                     $_SESSION['registerMessage'] = "Email is registered";
-                    header('Location: signup.php');   
+                    // header('Location: signup.php');   
                 }
                 else{
                     $sql = "INSERT INTO users (firstname, lastname, email, password) VALUES (?,?,?,?)";
                     $params = array($fname,$lname,$email,$pw);
-                    $stmt = sqlsrv_query($conn, $sql, $params);
+                    $stmt = mysqli_query($conn, $sql, $params);
 
                     if ($stmt === false){
-                        die(print_r (sqlsrv_errors(),true));
+                        die(print_r (mysqli_error($conn),true));
                     }
 
                 }
 
-                $_SESSION['registerMessage'] = "Registered!";
-
-                header('Location: sign-up-form.php');
-
-                
-
-
+                $_SESSION['registerMessage'] = null;
 
             }
+        }else{
+
         }
 
         ?>

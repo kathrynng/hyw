@@ -1,8 +1,7 @@
 <?php
-
     include 'connection.php';
 
-    $conn = sqlsrv_connect($servername, $connInfo);
+    $conn = new mysqli($servername, $username, $password, $database);
     
     $loadData = "./data.ddl";
     $data = file_get_contents($loadData, true);
@@ -11,10 +10,10 @@
     foreach( $lines as $line){
         $line = trim($line);
         if($line != ""){
-            sqlsrv_query($conn, $line, array());
+            mysqli_query($conn, $line, array());
         }
     }
-    sqlsrv_query();
+    mysqli_close($conn);
 
     header('Location: main.php');
 

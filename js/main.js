@@ -16,7 +16,7 @@ $(document).ready(function(){
     //magnific pop up to display the gallery of the images
     $(".project-area .project-menu #btn1").trigger('click');
 
-    $('.project-area .grid .test-popup-link').magnificPopup({
+    $('.project-area .grid .person-project .test-popup-link').magnificPopup({
         type: 'image',
         gallery:{enabled:true}
         

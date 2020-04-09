@@ -3,7 +3,7 @@
 
     $conn = new mysqli($servername, $username, $password, $database);
     
-    $loadData = "./data.ddl";
+    $loadData = "data.ddl";
     $data = file_get_contents($loadData, true);
     $lines = explode(";",$data);
 

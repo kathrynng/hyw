@@ -14,6 +14,9 @@
 </head>
 
 <body>
+    <?php
+        session_start();
+    ?>
     <header>
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-transparent border-none shadow-sm">
             <a href="main.php" class="navbar-brand">

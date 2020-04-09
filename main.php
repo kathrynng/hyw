@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php
-        session_start();
-    ?>
     <title>HYW</title>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -14,23 +11,29 @@
         <link rel="stylesheet" href="css/main_browse.css">
 </head>
 <body>
-
+    <?php
+    session_start();
+    ?>
     <div class="nav justify-content-between d-flex flex-column flex-md-row align-items-center mb-3 bg-white border-bottom shadow-sm pd-2">
         <a href="#" class="navbar-brand">
             <img src="images/Title 1.png" class="main-img" alt="heyyo world">
         </a>
-        <a class="sign-login" href=<?php 
+        <a class="sign-login" href="<?php 
             if(isset($_SESSION['authenticatedUser'])){
-                $user = $_SESSION['authenticatedUser'];
-                echo 'userGridWork.html';
+                if ($_SESSION['authenticatedUser'] != null){
+                    $user = $_SESSION['authenticatedUser'];
+                    echo 'userGridWork.html';    
+                }
             }else{
                 echo 'login.php';
             }
-        ?>>
+        ?>">
         <?php
             if(isset($_SESSION['authenticatedUser'])){
-                $user = $_SESSION['authenticatedUser'];
-                echo 'My HYW';
+                if ($_SESSION['authenticatedUser'] != null){
+                    $user = $_SESSION['authenticatedUser'];
+                    echo 'My HYW';    
+                }
             }else{
                 echo 'Login';
             }

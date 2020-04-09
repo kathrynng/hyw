@@ -1,12 +1,17 @@
 <?php
+
+session_start();
+
     if(isset($_POST['signup'])){
         header('Location: signup.php');
     }
      else if(isset($_POST['login'])){
         $authenticatedUser = validateLogin($_POST['email'], $_POST['password']);
-        if($authenticatedUser != null)
+        if($authenticatedUser != null){
+            $_SESSION['authenticatedUser'] = $authenticatedUser;
             header('Location: main.php');
-        else
+        }
+            else
             header('Location: login.php');
     }
 
@@ -27,9 +32,10 @@
 
         $sql = mysqli_prepare($conn, "SELECT password FROM users WHERE email = ?");
 
-        $sql->bind_param('s',$email);
+        $sql -> bind_param('s',$email);
 
-        $result = $sql->execute();
+        $sql->execute();
+        $result = mysqli_stmt_get_result($sql);
 
         if ($result == false){
             die(print_r (mysqli_error($conn),true));
@@ -41,8 +47,6 @@
             $retStr = $email;
         else
             $retStr = null;
-        
-        mysqli_close($conn);
 
         if($retStr != null){
             $_SESSION['login'] = null;
@@ -51,10 +55,12 @@
             $_SESSION['login'] = "Unable to login.";
         }
 
-        return $retStr;
-        
         mysqli_free_result($result);
         mysqli_close($conn);
+
+        return $retStr;
+        
+      
     }
 
 

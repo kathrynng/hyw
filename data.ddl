@@ -1,6 +1,6 @@
 DROP TABLE users;
 DROP TABLE userdata;
-DROP DATABASE [IF EXISTS] usersdb;
+DROP DATABASE IF EXISTS usersdb;
 
 CREATE DATABASE usersdb;
 USE usersdb;
@@ -20,7 +20,7 @@ CREATE TABLE userdata (
     filelocation VARCHAR(255) NOT NULL,
     filedescription VARCHAR(255) NOT NULL,
     PRIMARY KEY (fileID),
-    FORGEIN KEY (email) REFERENCES users(email)
+    FOREIGN KEY (email) REFERENCES users(email)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 

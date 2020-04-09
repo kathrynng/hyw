@@ -93,3 +93,7 @@ html body{
 .site-main .project-area .project-menu button+button{
     padding: 0 8rem;
 }
+
+.site-main .project-area .grid .person-project .img a:hover img{
+    filter:brightness(1.1) drop-shadow(1px 8px 30px #b1afaf);
+}

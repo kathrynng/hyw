@@ -11,4 +11,30 @@ $(document).ready(function(){
             
         return false;
     })
+
+
+    //magnific pop up to display the gallery of the images
+    $(".project-area .project-menu #btn1").trigger('click');
+
+    $('.project-area .grid .test-popup-link').magnificPopup({
+        type: 'image',
+        gallery:{enabled:true}
+        
+      });
+
+    //owl carousel to display different clients  
+      $(".site-main .client-area .owl-carousel").owlCarousel({
+          loop:true,
+          autoplay: true,
+          dots:true,
+          responsive:{
+            0:{
+                items:1
+            },
+            544:{
+                items:2
+            }
+          }
+
+      })
 });

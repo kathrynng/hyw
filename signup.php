@@ -35,7 +35,61 @@
         }
     }
     ?>
-        <form method="POST" action="signup.php">
+    <script>
+    function validation(form){
+            complete = true;
+                $('#alert').remove();
+                var regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                if(form.email.value == "" && regexEmail.test(form.email.value)==false){
+                    $('#email').addClass('is-invalid');
+                    $('#email').next().after("<small id='alert'>Please enter a valid email.<br><br></small>")
+                    complete = false;
+                }
+                else if($('#alert').length){
+                    $('#email').removeClass('is-invalid');
+                    $('#alert').remove();
+                    
+                }
+            
+            $('#alertFname').remove();
+            var regexName = /^[a-z ,.'-]+$/i
+            if (form.fname.value == "" && regexName.test(form.fname.value)==false){
+                $('#fname').addClass('is-invalid');
+                $('#fname').next().after("<small id='alertFname'>Please enter a valid first name.<br></small>")
+                complete = false;
+            }else if($('#alertFname').length){
+                $('#fname').removeClass('is-invalid');
+                    $('#alertFname').remove();
+                   
+            }
+
+            $('#alertLname').remove();
+            if (form.lname.value == "" && regexName.test(form.lname.value)==false){
+                $('#lname').addClass('is-invalid');
+                $('#lname').next().after("<small id='alertLname'>Please enter a valid last name.<br></small>")
+                complete = false;
+            }else if($('#alertLname').length){
+                $('#lname').removeClass('is-invalid');
+                    $('#alertLname').remove();
+                   
+            }
+
+            $('#alertPw').remove();
+            var regexPw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
+            if ($('#password-field').val() == "" && regexPw.test($('#password-field').val())==false){
+                $('#password-field').addClass('is-invalid');
+                $('#password-field').next().after("<small id='alertPw'>Please enter a valid password.<br></small>")
+                complete = false;
+            }else if($('#alertPw').length){
+                $('#password-field').removeClass('is-invalid');
+                    $('#alertPw').remove();
+                   
+            }
+
+            return complete;
+    }
+    </script>
+        <form method="POST" action="signup.php" onSubmit="return validation(this)">
             <fieldset>
                 <label>First Name: </label> <input type="text" id="fname" name="fname"> <br>
                 <label>Last Name: </label> <input type="text" id="lname" name="lname"> <br>

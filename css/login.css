@@ -116,6 +116,7 @@ transition: 0.2s ease;
 
 }
 
+
 .submit:hover{
     outline: none;
     border-color: rgb(252, 220, 252);
@@ -134,6 +135,13 @@ input{
     border: 2px solid #3b5998;
     border-radius: 10px;
 }
+
+.is-invalid{
+  border-color: red;
+  outline: none;
+  box-shadow: 0 0 2px red;
+}
+
 
 input:focus{
     border-color: #55acee;

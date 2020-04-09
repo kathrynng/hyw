@@ -1,38 +1,48 @@
 <?php
-    session_start();
-
-    if(isset($_POST['sign-up'])){
+    if(isset($_POST['signup'])){
         header('Location: signup.php');
-    } else if(isset($_POST['login'])){
-        $authenticatedUser = validateLogin();
+    }
+     else if(isset($_POST['login'])){
+        $authenticatedUser = validateLogin($_POST['email'], $_POST['password']);
+        if($authenticatedUser != null)
+            header('Location: main.php');
+        else
+            header('Location: login.php');
     }
 
-    function validateLogin(){
-        $email = $_POST('email');
-        $pw = $_POST('password');
+    function validateLogin($email, $pw){
+        
+        include 'connection.php';
 
         if ($email == null || $pw == null || strlen($email) == 0 || strlen($pw) == 0){
             return null;
         }
-
-        include 'connection.php';
-        $conn = sqlsrv_connect($servername, $connInfo);
         
         //Check userID
-        $sql = "SELECT password FROM users WHERE email = ?";
-        $params = array($email);
-        $stmt = sqlsrv_query($conn, $sql, $params);
-        if ($stmt == false){
-            die(print_r (sqlsrv_errors(),true));
+        $conn = new mysqli($servername, $username, $password, $database);
+
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
         }
-        $valid = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
-        if($valid['password'] == $pw)
+
+        $sql = mysqli_prepare($conn, "SELECT password FROM users WHERE email = ?");
+
+        $sql->bind_param('s',$email);
+
+        $result = $sql->execute();
+
+        if ($result == false){
+            die(print_r (mysqli_error($conn),true));
+        }
+
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+        if($row['password'] == $pw)
             $retStr = $email;
         else
             $retStr = null;
         
-        sqlsrv_free_stmt($pstmt);
-        sqlsrv_close($conn);
+        mysqli_close($conn);
 
         if($retStr != null){
             $_SESSION['login'] = null;
@@ -42,9 +52,10 @@
         }
 
         return $retStr;
+        
+        mysqli_free_result($result);
+        mysqli_close($conn);
     }
 
-    sqlsrv_free_stmt($stmt);
-    sqlsrv_close($conn);
 
 ?>

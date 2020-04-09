@@ -1,8 +1,14 @@
 <?php
     $servername = 'localhost';
     $username = 'root';
-    $password = '';
-    $database = 'usersDB';
+    $password = 'password';
+    $database = 'usersdb';
     
-    $connInfo = array('DATABASE'=>$database, 'UID'=>$username, 'PWD'=>$password, 'CharacterSet' => 'UTF-8');
+   // Create connection
+    $conn = mysqli_connect($servername, $username, $password);
+
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
 ?>

@@ -16,7 +16,7 @@
 <body>
     <header>
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-transparent border-none shadow-sm">
-            <a href="#" class="navbar-brand">
+            <a href="main.php" class="navbar-brand">
                 <img src="images/Title 1.png" class="main-img" alt="heyyo world">
             </a>
         </div>
@@ -29,9 +29,9 @@
                 <label class = "pass">Password:</label> <input type="password" id = "password-field" name= "password">
                 <i id  = "password-status" class="fa fa-eye" aria-hidden="true" onclick="showPassword()"></i>
                 <br><br>
-                <input class ="submit" type="submit" value="Continue">
+                <input class ="submit" name="login" type="submit" value="Continue">
                 <br><br>
-                <input class ="submit" name="sign-up" type="submit" value="Sign Up">
+                <input class ="submit" name="signup" type="submit" value="Sign Up">
 
                 
                 <script>

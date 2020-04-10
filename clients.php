@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.carousel.min.css">
     <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.theme.default.min.css">
 
+    <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/main_browse.css">
 </head>
 <body>

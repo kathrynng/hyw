@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/all.min.css">
     <!--Magnific Pop-Up css file-->
     <link rel="stylesheet" href="./vendor/Magnific-Popup/dist/magnific-popup.css">
-
+    <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/main_browse.css">
 </head>
 <body>

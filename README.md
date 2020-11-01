@@ -1,11 +1,25 @@
 # Heyyo World
 COSC 360 Project
+
+
 ![logo](/images/logo.png)
+
+
+
   To run the website, you will need a mysql server running. Connection information can be edited at **connection.php**. Open **loaddata.php** using your localhost- this will redirect you to **main.php** with a preloaded database.
   HeyyoWorld project starts with the main Discover page **main.php**, on this page any type of user is able to navigate through different pages by using the navigation bar at the top. The client/freelancer can login using the _**LOGIN**_ button.
+  
+  
+  
 ![main](/images/readme_main.png)
+
+
+
+
 On the main page DISCOVER, the user is able to notice the reaction of shadow drop on the item they are hovering on,and when they press that item they are directed to the gallery of photos of the same category as the clicked item. The gallery is shown below:
 User can navigate through gallery, with the arrow keys on keyboard as well as exit the gallery with Esc.
+
+
 ![1](/images/readme1.png)
 User also can display the items based on the categories shown below:
 ![2](/images/readme2.png)

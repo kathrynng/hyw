@@ -1,4 +1,4 @@
-# hyw
+# Heyyo World
 COSC 360 Project
   To run the website, you will need a mysql server running. Connection information can be edited at **connection.php**. Open **loaddata.php** using your localhost- this will redirect you to** main.php** with a preloaded database.
 

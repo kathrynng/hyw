@@ -25,9 +25,23 @@ User also can display the items based on the categories shown below:
 ![2](/images/readme2.png)
 The following pages illustrate the Freelancers page, supposedly showing each account of artists/freelancers registered for our website. An user can take a look at their short information, download CV, and see the projects that are recently done, displaying by navigating different categories.
 ![3](/images/readme3.png)
+
+
+
 ![4](/images/readme4.png)
+
+
 ![5](/images/readme5.png)
+
+
 User also can navigate through different categories when displaying the projects of a freelancer.
 ![6](/images/readme6.png)
+
+
+
 On CLIENTS page, different clients registered for our website are shown as carousel, illustrated below:
+
+
+
+
 ![7](/images/readme7.png)

@@ -6,12 +6,17 @@
 
 
   
+   
+   
+   
+   
    To run the website, you will need a mysql server running. Connection information can be edited at **connection.php**. Open **loaddata.php** using your localhost- this will redirect you to **main.php** with a preloaded database.
   HeyyoWorld project starts with the main Discover page **main.php**, on this page any type of user is able to navigate through different pages by using the navigation bar at the top. The client/freelancer can login using the _**LOGIN**_ button
   
   
   
-![main](/images/readme_main.png)
+
+  ![main](/images/readme_main.png)
 
 
 
@@ -20,12 +25,12 @@
 User can navigate through gallery, with the arrow keys on keyboard as well as exit the gallery with Esc.*
 
 
-![1](/images/readme1.png)
+  ![1](/images/readme1.png)
 
 *User also can display the items based on the categories shown below:*
 
 
-![2](/images/readme2.png)
+  ![2](/images/readme2.png)
 
 
 
@@ -34,11 +39,11 @@ User can navigate through gallery, with the arrow keys on keyboard as well as ex
 
 
 
-![3](/images/readme3.png)
+  ![3](/images/readme3.png)
 
 
 
-![5](/images/readme5.png)
+  ![5](/images/readme5.png)
 
 
 
@@ -53,4 +58,4 @@ User can navigate through gallery, with the arrow keys on keyboard as well as ex
 
 
 
-![7](/images/readme7.png)
+  ![7](/images/readme7.png)

@@ -1,6 +1,7 @@
 # COSC 360 Project
 
-
+  
+  
 ![logo](/images/logo.png)
 
 

@@ -1,6 +1,9 @@
 # COSC 360 Project
 
-
+<break/>
+<break/>
+<break/>
+<break/>
 ![logo](/images/logo.png)
 
 

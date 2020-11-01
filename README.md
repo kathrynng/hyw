@@ -42,7 +42,6 @@ User can navigate through gallery, with the arrow keys on keyboard as well as ex
   ![3](/images/readme3.png)
 
 
----
   ![5](/images/readme5.png)
 
 ---
@@ -51,11 +50,11 @@ User can navigate through gallery, with the arrow keys on keyboard as well as ex
 ![6](/images/readme6.png)
 
 
-
+---
 *On CLIENTS page, different clients registered for our website are shown as carousel, illustrated below:*
 
 
----
+
 
 
   ![7](/images/readme7.png)

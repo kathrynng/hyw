@@ -37,8 +37,7 @@ User can navigate through gallery, with the arrow keys on keyboard as well as ex
 
 
 
-![4](/images/readme4.png)
-
+![5](/images/readme5.png)
 
 
 

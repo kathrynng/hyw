@@ -42,7 +42,7 @@ User can navigate through gallery, with the arrow keys on keyboard as well as ex
 
 
 *User also can navigate through different categories when displaying the projects of a freelancer.*
-          ![6](/images/readme6.png)
+![6](/images/readme6.png)
 
 
 
@@ -51,4 +51,5 @@ User can navigate through gallery, with the arrow keys on keyboard as well as ex
 
 
 
-          ![7](/images/readme7.png)
+
+![7](/images/readme7.png)
